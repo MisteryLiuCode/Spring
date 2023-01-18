@@ -1,5 +1,6 @@
 package com.liu.spring.applicationContext;
 
+import com.liu.spring.bean.Monster;
 import org.dom4j.DocumentException;
 
 import java.util.concurrent.ConcurrentHashMap;
@@ -12,8 +13,11 @@ import java.util.concurrent.ConcurrentHashMap;
  * @author liushuaibiao
  */
 public class ApplicationContextTest {
-    public static void main(String[] args) throws DocumentException {
-        ApplicationContext applicationContext = new ApplicationContext("beans.xml");
+    public static void main(String[] args) throws DocumentException, ClassNotFoundException, InstantiationException, IllegalAccessException {
+        ApplicationContext ioc = new ApplicationContext("beans.xml");
+        Monster monster = (Monster) ioc.getBean("monster01");
+        System.out.println(monster.getMonsterId());
+        System.out.println(monster.getName());
         System.out.println("ok");
     }
 
