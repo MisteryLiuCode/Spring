@@ -13,6 +13,5 @@ public class SpringBeanTest {
 //        编译类型是object,运行类型是Monster
         Object monster01 = ioc.getBean("monster01");
         System.out.println(monster01);
-
     }
 }
