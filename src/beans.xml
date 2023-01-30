@@ -32,10 +32,22 @@
 <!--            </bean>-->
 
 <!--    通过构造器配置属性，通过参数类型指定参数-->
-    <bean class="com.liu.spring.bean.Monster">
-        <!--        通过构造器配置属性,通过下标指定参数-->
-        <constructor-arg value="200" type="java.lang.Integer"/>
-        <constructor-arg value="白骨精" type="java.lang.String"/>
-        <constructor-arg value="吸人血" type="java.lang.String"/>
-    </bean>
+<!--    <bean class="com.liu.spring.bean.Monster">-->
+<!--        &lt;!&ndash;        通过构造器配置属性,通过下标指定参数&ndash;&gt;-->
+<!--        <constructor-arg value="200" type="java.lang.Integer"/>-->
+<!--        <constructor-arg value="白骨精" type="java.lang.String"/>-->
+<!--        <constructor-arg value="吸人血" type="java.lang.String"/>-->
+<!--    </bean>-->
+
+
+
+
+
+<!--    通过p名称空间配置bean-->
+<!--        <bean id="monster" class="com.liu.spring.bean.Monster"-->
+<!--            &lt;!&ndash;        通过构造器配置属性,通过下标指定参数&ndash;&gt;-->
+<!--            p:monsterId="500"-->
+<!--            p:name="红孩儿"-->
+<!--            p:skill="吐火"-->
+<!--        />-->
 </beans>
