@@ -8,10 +8,34 @@
         4.class属性用于指定类的全路径->底层使用反射创建
         5.id属性表示该java对象在spring中容器中的id,通过id可以获取到该对象
 -->
-    <bean class="com.liu.spring.bean.Monster" id="monster01">
-<!--        配置属性-->
-        <property name="monsterId" value="100"/>
-        <property name="name" value="牛魔王"/>
-        <property name="skill" value="芭蕉扇"/>
+<!--    <bean class="com.liu.spring.bean.Monster" id="monster01">-->
+<!--&lt;!&ndash;        配置属性&ndash;&gt;-->
+<!--        <property name="monsterId" value="100"/>-->
+<!--        <property name="name" value="牛魔王"/>-->
+<!--        <property name="skill" value="芭蕉扇"/>-->
+<!--    </bean>-->
+
+<!--    配置一个bean,通过类型获取,不分配id,默认会分配id-->
+<!--        <bean class="com.liu.spring.bean.Monster">-->
+<!--    &lt;!&ndash;        配置属性&ndash;&gt;-->
+<!--            <property name="monsterId" value="100"/>-->
+<!--            <property name="name" value="牛魔王"/>-->
+<!--            <property name="skill" value="芭蕉扇"/>-->
+<!--        </bean>-->
+
+<!--    配置monster对象,并且指定构造器-->
+<!--            <bean class="com.liu.spring.bean.Monster">-->
+<!--        &lt;!&ndash;        通过构造器配置属性,通过下标指定参数&ndash;&gt;-->
+<!--                <constructor-arg value="200" index="0"/>-->
+<!--                <constructor-arg value="白骨精" index="1"/>-->
+<!--                <constructor-arg value="吸人血" index="2"/>-->
+<!--            </bean>-->
+
+<!--    通过构造器配置属性，通过参数类型指定参数-->
+    <bean class="com.liu.spring.bean.Monster">
+        <!--        通过构造器配置属性,通过下标指定参数-->
+        <constructor-arg value="200" type="java.lang.Integer"/>
+        <constructor-arg value="白骨精" type="java.lang.String"/>
+        <constructor-arg value="吸人血" type="java.lang.String"/>
     </bean>
 </beans>
