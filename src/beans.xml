@@ -50,4 +50,11 @@
 <!--            p:name="红孩儿"-->
 <!--            p:skill="吐火"-->
 <!--        />-->
+
+
+<!--   测试Di注入-->
+            <bean class="com.liu.spring.di.DiDao" id="diDao"/>
+            <bean class="com.liu.spring.di.DiImpl" id="diImpl">
+                <property name="diDao" ref="diDao"/>
+            </bean>
 </beans>

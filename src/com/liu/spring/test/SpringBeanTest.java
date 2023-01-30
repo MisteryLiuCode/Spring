@@ -2,6 +2,7 @@ package com.liu.spring.test;
 
 
 import com.liu.spring.bean.Monster;
+import com.liu.spring.di.DiImpl;
 import org.dom4j.DocumentException;
 import org.junit.jupiter.api.Test;
 import org.springframework.context.ApplicationContext;
@@ -24,15 +25,26 @@ public class SpringBeanTest {
         ApplicationContext ioc = new ClassPathXmlApplicationContext("beans.xml");
 //        通过对象类型获取bean
         Monster bean = ioc.getBean(Monster.class);
-        System.out.println("bean="+bean);
+        System.out.println("bean=" + bean);
     }
 
-//    通过构造器来设置属性
+    //    通过构造器来设置属性
     @Test
-    public void setBeanByConstructer(){
+    public void setBeanByConstructer() {
         ApplicationContext ioc = new ClassPathXmlApplicationContext("beans.xml");
 //        通过对象类型获取bean
         Monster bean = ioc.getBean(Monster.class);
-        System.out.println("bean="+bean);
+        System.out.println("bean=" + bean);
     }
+
+    //    依赖注入
+    @Test
+    public void setDi() {
+        ApplicationContext ioc = new ClassPathXmlApplicationContext("beans.xml");
+        //        编译类型是object,运行类型是Monster
+        DiImpl diImpli = (DiImpl) ioc.getBean("diImpl");
+        diImpli.diTest();
+    }
+
+
 }
