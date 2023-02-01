@@ -52,9 +52,17 @@
 <!--        />-->
 
 
-<!--   测试Di注入-->
-            <bean class="com.liu.spring.di.DiDao" id="diDao"/>
-            <bean class="com.liu.spring.di.DiImpl" id="diImpl">
-                <property name="diDao" ref="diDao"/>
-            </bean>
+<!--&lt;!&ndash;   测试Di注入&ndash;&gt;-->
+<!--            <bean class="com.liu.spring.di.DiDao" id="diDao"/>-->
+<!--            <bean class="com.liu.spring.di.DiImpl" id="diImpl">-->
+<!--                <property name="diDao" ref="diDao"/>-->
+<!--            </bean>-->
+
+<!--    演示配置House对象,演示整个bean的生命周期-->
+<!--    可以配置初始化是哪个方法,销毁是用哪个方法-->
+<!--    init-method="init" 指定bean的初始化方法,在setter方法后执行-->
+<!--    destroy-method="destroy" 指定bean的销毁方法,在容器关闭的时候执行-->
+    <bean class="com.liu.spring.bean.House" id="house" init-method="init" destroy-method="destroy">
+        <property name="name" value="北京豪宅"/>
+    </bean>
 </beans>

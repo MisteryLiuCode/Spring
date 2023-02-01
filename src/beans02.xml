@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="house" class="com.liu.spring.bean.House" init-method="init" destroy-method="destroy">
+        <property name="name" value="大豪宅"/>
+    </bean>
+
+<!--    只要把对象交给ioc管理了,后置处理器都会作用-->
+    <bean id="house02" class="com.liu.spring.bean.House" init-method="init" destroy-method="destroy">
+        <property name="name" value="香港大豪宅"/>
+    </bean>
+
+<!--    当我们把这个后置处理器加入到容器中后,后置处理器就会对所有对象生效-->
+    <bean id="beanPostProcessor" class="com.liu.spring.bean.MyBeanPostProcessor"/>
+
+</beans>

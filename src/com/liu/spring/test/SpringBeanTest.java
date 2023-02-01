@@ -1,6 +1,7 @@
 package com.liu.spring.test;
 
 
+import com.liu.spring.bean.House;
 import com.liu.spring.bean.Monster;
 import com.liu.spring.di.DiImpl;
 import org.dom4j.DocumentException;
@@ -46,5 +47,25 @@ public class SpringBeanTest {
         diImpli.diTest();
     }
 
+    //bean的生命周期
+    @Test
+    public void beanLife() {
+        ApplicationContext ioc = new ClassPathXmlApplicationContext("beans.xml");
+        //        编译类型是object,运行类型是Monster
+        House house = (House) ioc.getBean("house");
 
+        //执行销毁方法,上面是使用接口来接收,但是接口中没有destroy方法,所以又转化为运行类型来执行close方法
+        ((ClassPathXmlApplicationContext)ioc).close();
+    }
+
+
+    //测试bean后置处理器
+    @Test
+    public void beanPostProcessor(){
+        ClassPathXmlApplicationContext ioc = new ClassPathXmlApplicationContext("beans02.xml");
+        House house = (House)ioc.getBean("house");
+        House house02 = (House)ioc.getBean("house02");
+        System.out.println(house);
+        System.out.println(house02);
+    }
 }
