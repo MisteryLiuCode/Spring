@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
 <!--    1.配置Monster对象
         2.在beans中可以配置多个bean
         3.bean就是一个java对象
@@ -62,7 +63,16 @@
 <!--    可以配置初始化是哪个方法,销毁是用哪个方法-->
 <!--    init-method="init" 指定bean的初始化方法,在setter方法后执行-->
 <!--    destroy-method="destroy" 指定bean的销毁方法,在容器关闭的时候执行-->
-    <bean class="com.liu.spring.bean.House" id="house" init-method="init" destroy-method="destroy">
-        <property name="name" value="北京豪宅"/>
+<!--    <bean class="com.liu.spring.bean.House" id="house" init-method="init" destroy-method="destroy">-->
+<!--        <property name="name" value="北京豪宅"/>-->
+<!--    </bean>-->
+
+<!--    配置monster对象,属性从文件中读取-->
+    <context:property-placeholder location="classpath:my.properties"/>
+
+    <bean id="monsterId1000" class="com.liu.spring.bean.Monster">
+        <property name="monsterId" value="${monsterId}"/>
+        <property name="skill" value="${skill}"/>
+        <property name="name" value="${name}"/>
     </bean>
 </beans>

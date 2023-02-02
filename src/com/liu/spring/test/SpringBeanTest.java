@@ -58,6 +58,24 @@ public class SpringBeanTest {
         ((ClassPathXmlApplicationContext)ioc).close();
     }
 
+//    测试集成属性 patent
+    @Test
+    public void getBeanForParent(){
+        ApplicationContext ioc = new ClassPathXmlApplicationContext("beans.xml");
+        Monster monster11 = ioc.getBean("monster11", Monster.class);
+        Monster monster12 = ioc.getBean("monster12", Monster.class);
+        System.out.println(monster11);
+        System.out.println(monster12);
+    }
+
+
+    //测试bean创建顺序
+    @Test
+    public void testBeanByCreate(){
+        ApplicationContext ioc = new ClassPathXmlApplicationContext("beans.xml");
+        System.out.println("ok");
+    }
+
 
     //测试bean后置处理器
     @Test
@@ -67,5 +85,12 @@ public class SpringBeanTest {
         House house02 = (House)ioc.getBean("house02");
         System.out.println(house);
         System.out.println(house02);
+    }
+
+    @Test
+    public void attributeBean(){
+        ClassPathXmlApplicationContext ioc = new ClassPathXmlApplicationContext("beans.xml");
+        Monster monsterId1000 = (Monster) ioc.getBean("monsterId1000");
+        System.out.println(monsterId1000);
     }
 }
