@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+    <!--    配置容器要扫描的包
+            1、component-scan 要对指定包下面的类进行扫描，并创建对象到容器
+            2、base-package 指定要扫描的包
+            3、含义是当spring容器初始化时就会扫描com.liu.spring.component下面的有注解的类，并把对象创建到容器
+    -->
+    <context:component-scan base-package="com.liu.spring.component"/>
+</beans>

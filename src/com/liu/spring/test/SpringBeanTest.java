@@ -3,6 +3,7 @@ package com.liu.spring.test;
 
 import com.liu.spring.bean.House;
 import com.liu.spring.bean.Monster;
+import com.liu.spring.component.MyComponent;
 import com.liu.spring.di.DiImpl;
 import org.dom4j.DocumentException;
 import org.junit.jupiter.api.Test;
@@ -92,5 +93,13 @@ public class SpringBeanTest {
         ClassPathXmlApplicationContext ioc = new ClassPathXmlApplicationContext("beans.xml");
         Monster monsterId1000 = (Monster) ioc.getBean("monsterId1000");
         System.out.println(monsterId1000);
+    }
+
+//    通过注解配置bean
+    @Test
+    public void setBeanByAnnotation(){
+        ClassPathXmlApplicationContext ioc = new ClassPathXmlApplicationContext("beans05.xml");
+        MyComponent myComponent = (MyComponent) ioc.getBean("myComponent");
+        System.out.println(myComponent);
     }
 }
