@@ -58,6 +58,15 @@ public class SpringApplicationContext {
 //                        判断是否有注入对象的注解
                         if (aClass.isAnnotationPresent(Component.class) ||
                                 aClass.isAnnotationPresent(Controller.class)) {
+//                            模拟如果是component注解，设置value值，把对象id设置为value
+                            if (aClass.isAnnotationPresent(Component.class)){
+//                                拿到注解
+                                Component component = aClass.getDeclaredAnnotation(Component.class);
+                                String id = component.value();
+                                if (!id.equals("")){
+                                    className=id;
+                                }
+                            }
 //                            这时就可以反射对象，并放入到容器中
                             Class<?> clazz = Class.forName(classFullName);
                             Object instance = clazz.newInstance();
