@@ -4,6 +4,8 @@ package com.liu.spring.test;
 import com.liu.spring.bean.House;
 import com.liu.spring.bean.Monster;
 import com.liu.spring.component.MyComponent;
+import com.liu.spring.component.UserController;
+import com.liu.spring.component.UserService;
 import com.liu.spring.di.DiImpl;
 import org.dom4j.DocumentException;
 import org.junit.jupiter.api.Test;
@@ -101,5 +103,17 @@ public class SpringBeanTest {
         ClassPathXmlApplicationContext ioc = new ClassPathXmlApplicationContext("beans05.xml");
         MyComponent myComponent = (MyComponent) ioc.getBean("myComponent");
         System.out.println(myComponent);
+    }
+    //    演示注解AutoWaired
+    @Test
+    public void autoWaired(){
+        ClassPathXmlApplicationContext ioc = new ClassPathXmlApplicationContext("beans05.xml");
+        UserController userController = (UserController) ioc.getBean("userController");
+        userController.asyOk();
+        System.out.println(userController);
+        UserService userService = ioc.getBean("userService", UserService.class);
+        System.out.println("容器中的userService="+userService);
+        UserService userService200 = ioc.getBean("userService200", UserService.class);
+        System.out.println("userService200="+userService200);
     }
 }

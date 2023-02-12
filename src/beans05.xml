@@ -9,4 +9,8 @@
             3、含义是当spring容器初始化时就会扫描com.liu.spring.component下面的有注解的类，并把对象创建到容器
     -->
     <context:component-scan base-package="com.liu.spring.component"/>
+
+<!--    配置两个userService-->
+    <bean class="com.liu.spring.component.UserService" id="userService200"/>
+    <bean class="com.liu.spring.component.UserService" id="userService300"/>
 </beans>
