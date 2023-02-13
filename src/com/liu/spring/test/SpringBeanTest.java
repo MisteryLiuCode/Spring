@@ -13,6 +13,8 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class SpringBeanTest {
+
+
     @Test
     public void getMonster() {
         //创建容器 ApplicationContext,该容器和容器配置文件关联
@@ -115,5 +117,12 @@ public class SpringBeanTest {
         System.out.println("容器中的userService="+userService);
         UserService userService200 = ioc.getBean("userService200", UserService.class);
         System.out.println("userService200="+userService200);
+    }
+
+//    泛型依赖配置bean
+    @Test
+    public void setProByAutoWired(){
+        ClassPathXmlApplicationContext ioc = new ClassPathXmlApplicationContext("beans07.xml");
+        System.out.println("ok");
     }
 }
