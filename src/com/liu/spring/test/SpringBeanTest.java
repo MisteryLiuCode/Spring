@@ -6,6 +6,7 @@ import com.liu.spring.bean.Monster;
 import com.liu.spring.component.MyComponent;
 import com.liu.spring.component.UserController;
 import com.liu.spring.component.UserService;
+import com.liu.spring.depinjection.PhoneService;
 import com.liu.spring.di.DiImpl;
 import org.dom4j.DocumentException;
 import org.junit.jupiter.api.Test;
@@ -117,6 +118,14 @@ public class SpringBeanTest {
         System.out.println("容器中的userService="+userService);
         UserService userService200 = ioc.getBean("userService200", UserService.class);
         System.out.println("userService200="+userService200);
+    }
+    @Test
+    public void setProByDepencyInjection(){
+
+        ClassPathXmlApplicationContext ioc = new ClassPathXmlApplicationContext("beans07.xml");
+        ioc.getBean("phoneService", PhoneService.class);
+
+
     }
 
 //    泛型依赖配置bean
