@@ -10,7 +10,6 @@ public class VehicleProxyProvider {
     //target_vehicle 表示真正要执行的对象
     //该对象实现了Vehicle接口
     private Vehicle target_vehicle;
-
     public VehicleProxyProvider(Vehicle target_vehicle) {
         this.target_vehicle = target_vehicle;
     }
@@ -26,7 +25,6 @@ public class VehicleProxyProvider {
          Proxy.newProxyInstance()可以返回一个代理对象，ClassLoader loader：类加载器
          Class<?>[] interfaces，就是将来要代理的对象的接口信息
          InvocationHandler 调用处理器/对象，有一个非常重要的方法invoke
-
          */
 //        得到类加载器
         ClassLoader classLoader = target_vehicle.getClass().getClassLoader();
@@ -49,12 +47,13 @@ public class VehicleProxyProvider {
             public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
                 System.out.println("交通工具开始运行了");
 //                反射，可以通过方法.对象调用方法。
+//                method:com.liu.spring.proxy2.Vehicle
+//                当返回值=null,invoke=null
                 Object invoke = method.invoke(target_vehicle, args);
                 System.out.println("交通工具停止运行了");
                 return invoke;
             }
         };
-
         Vehicle proxy = (Vehicle) Proxy.newProxyInstance(classLoader, interfaces, invocationHandler);
         return proxy;
     }

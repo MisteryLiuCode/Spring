@@ -7,4 +7,9 @@ public class Ship implements Vehicle{
         System.out.println("船正在运行。。。");
         System.out.println("船结束运行。。。");
     }
+
+    @Override
+    public String fly(int height) {
+        return "";
+    }
 }

@@ -19,11 +19,7 @@ public class TestVehicleProxy {
 //      class com.sun.proxy.$Proxy8,可以看到，执行run方法的时候不是直接调用vehicle.run，
 //      而是执行代理的invoke方法
         System.out.println("运行类型是"+proxy.getClass());
-
-        proxy.run();
+        String fly = proxy.fly(1000);
+        System.out.println("代理对象输出的结果是"+fly);
     }
-
-
-
-
 }
