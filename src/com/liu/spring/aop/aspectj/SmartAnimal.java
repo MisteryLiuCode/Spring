@@ -1,4 +1,4 @@
-package com.liu.spring.proxy3;
+package com.liu.spring.aop.aspectj;
 
 public interface SmartAnimal {
 //    求和

@@ -1,4 +1,4 @@
-package com.liu.spring.proxy2Depth;
+package com.liu.spring.aop.proxy3;
 
 public interface SmartAnimal {
 //    求和

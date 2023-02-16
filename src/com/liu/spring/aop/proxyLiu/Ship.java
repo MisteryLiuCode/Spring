@@ -1,4 +1,4 @@
-package com.liu.spring.proxyLiu;
+package com.liu.spring.aop.proxyLiu;
 
 public class Ship implements Vehicle {
     @Override

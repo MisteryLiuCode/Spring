@@ -1,4 +1,4 @@
-package com.liu.spring.proxy2;
+package com.liu.spring.aop.proxy2;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
@@ -47,7 +47,7 @@ public class VehicleProxyProvider {
             public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
                 System.out.println("交通工具开始运行了");
 //                反射，可以通过方法.对象调用方法。
-//                method:com.liu.spring.proxy2.Vehicle
+//                method:com.liu.spring.aop.proxy2.Vehicle
 //                当返回值=null,invoke=null
                 Object invoke = method.invoke(target_vehicle, args);
                 System.out.println("交通工具停止运行了");

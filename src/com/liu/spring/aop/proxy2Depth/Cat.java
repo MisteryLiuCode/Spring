@@ -1,4 +1,4 @@
-package com.liu.spring.proxy2Depth;
+package com.liu.spring.aop.proxy2Depth;
 
 public class Cat implements SmartAnimal {
     @Override

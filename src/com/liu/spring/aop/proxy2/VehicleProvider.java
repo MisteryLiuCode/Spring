@@ -1,26 +1,21 @@
-package com.liu.spring.proxy2Depth;
-
-import com.liu.spring.proxy2.Vehicle;
+package com.liu.spring.aop.proxy2;
 
 import java.lang.reflect.InvocationHandler;
-import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
-import java.util.Arrays;
 
-public class VehicleAnimalProvider {
+public class VehicleProvider {
 
     //定义一个属性
     //target_vehicle 表示真正要执行的对象
     //该对象实现了Vehicle接口
-    private SmartAnimal target_vehicle;
-
-    public VehicleAnimalProvider(SmartAnimal target_vehicle) {
+    private Vehicle target_vehicle;
+    public VehicleProvider(Vehicle target_vehicle) {
         this.target_vehicle = target_vehicle;
     }
 
     //    编写一个对象，返回一个代理对象
-    public SmartAnimal getProxy() {
+    public Vehicle getProxy() {
         /*
             public static Object newProxyInstance(ClassLoader loader,
                                           Class<?>[] interfaces,
@@ -50,27 +45,16 @@ public class VehicleAnimalProvider {
              */
             @Override
             public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-                try {
-//                从Aop的角度来看,这个叫做横切关注点,叫做前置通知
-                    System.out.println("日志-方法名-" + method.getName() + "-参数:" + Arrays.toString(args));
-                    Object invoke = method.invoke(target_vehicle, args);
-                    System.out.println("方法内部打印res=" + invoke);
-//                这个也是横切关注点,叫做后置通知
-                    System.out.println("日志-方法名" + method.getName() + "-结果res=" + invoke);
-                    return invoke;
-                } catch (Exception e) {
-                    e.printStackTrace();
-//                    从Aop的角度看,这也是一个横切关注点,异常通知
-                    System.out.println("方法执行异常了-日志-方法名+" + method.getName() + "-异常类型-" + e.getClass().getName());
-                } finally {
-//                    不管知否出现异常,方法最终结束
-//                    从aop的角度看,也是一个横切关注点
-                    System.out.println("方法最终结束+"+method.getName());
-                }
-                return null;
+                System.out.println("交通工具开始运行了");
+//                反射，可以通过方法.对象调用方法。
+//                method:com.liu.spring.aop.proxy2.Vehicle
+//                当返回值=null,invoke=null
+                Object invoke = method.invoke(target_vehicle, args);
+                System.out.println("交通工具停止运行了");
+                return invoke;
             }
         };
-        SmartAnimal proxy = (SmartAnimal) Proxy.newProxyInstance(classLoader, interfaces, invocationHandler);
+        Vehicle proxy = (Vehicle) Proxy.newProxyInstance(classLoader, interfaces, invocationHandler);
         return proxy;
     }
 }

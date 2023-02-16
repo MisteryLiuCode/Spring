@@ -1,4 +1,4 @@
-package com.liu.spring.proxy3;
+package com.liu.spring.aop.proxy2Depth;
 
 import org.junit.jupiter.api.Test;
 
@@ -21,12 +21,12 @@ public class TestAnimalProxy {
         Float sub = proxy.getSub(1F, 1F);
     }
 
-    @Test
     public void animalRun(){
         SmartAnimal smartAnimal = new Cat();
         VehicleAnimalProvider vehicleAnimalProvider = new VehicleAnimalProvider(new Cat());
         SmartAnimal proxy = vehicleAnimalProvider.getProxy();
-        Float sum = proxy.getSum(1F, 1F);
-        System.out.println(sum);
+
+
+
     }
 }

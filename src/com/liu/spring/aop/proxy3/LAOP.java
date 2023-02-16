@@ -1,4 +1,4 @@
-package com.liu.spring.proxy3;
+package com.liu.spring.aop.proxy3;
 
 import java.lang.reflect.Method;
 import java.util.Arrays;
