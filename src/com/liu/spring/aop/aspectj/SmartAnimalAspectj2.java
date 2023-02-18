@@ -9,8 +9,8 @@ import org.springframework.stereotype.Component;
 import java.util.Arrays;
 import java.util.List;
 
-@Aspect //表示是一个切面类,底层就会有切面编程的支持(动态代理+反射)
-@Component
+//@Aspect //表示是一个切面类,底层就会有切面编程的支持(动态代理+反射)
+//@Component
 public class SmartAnimalAspectj2 {
     //=====环绕通知 start=====
 //@Around(value = "execution(* *.*(..))")
