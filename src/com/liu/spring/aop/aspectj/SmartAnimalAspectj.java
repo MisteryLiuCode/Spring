@@ -18,9 +18,6 @@ public class SmartAnimalAspectj {
     public void myPoint(){
     }
 
-
-
-
     //    切面的一个方法,方法在哪执行,由程序员决定
 //    希望将f1方法切入到Cat-getSum前执行,也就是前置通知
 //    @Before(value = "execution(public Float com.liu.spring.aop.aspectj.Cat.getSum(Float, Float))")

@@ -7,6 +7,8 @@
     <SOURCES>
       <root url="jar://$USER_HOME$/.ideaLibSources/spring-core-5.3.8-sources.jar!/" />
       <root url="jar://$USER_HOME$/.ideaLibSources/spring-core-5.3.8-sources.jar!/" />
+      <root url="jar://$USER_HOME$/.ideaLibSources/spring-beans-5.3.8-sources.jar!/" />
+      <root url="jar://$USER_HOME$/.ideaLibSources/spring-beans-5.3.8-sources.jar!/" />
     </SOURCES>
     <jarDirectory url="file://$PROJECT_DIR$/lib" recursive="false" />
   </library>

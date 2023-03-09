@@ -3,9 +3,11 @@ package com.liu.spring.bean;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 @Data
 @NoArgsConstructor
+@ToString
 public class Monster {
     private Integer monsterId;
     private String name;
@@ -17,4 +19,5 @@ public class Monster {
         this.name = name;
         this.skill = skill;
     }
+
 }
