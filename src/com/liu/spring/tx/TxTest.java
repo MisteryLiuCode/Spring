@@ -2,6 +2,7 @@ package com.liu.spring.tx;
 
 import com.liu.spring.tx.dao.GoodsDao;
 import com.liu.spring.tx.service.GoodsService;
+import com.liu.spring.tx.service.MultiplyService;
 import org.junit.jupiter.api.Test;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -55,4 +56,16 @@ public class TxTest {
         goodsService.buyGoodsTx(1,1,1);
         System.out.println("商品购买成功");
     }
+
+
+//    测试事务的传播机制
+    @Test
+    public void MultiBuyGoodsByTx(){
+        ClassPathXmlApplicationContext ioc = new ClassPathXmlApplicationContext("tx_ioc.xml");
+        GoodsService goodsService = ioc.getBean(GoodsService.class);
+        MultiplyService multiplyService = ioc.getBean(MultiplyService.class);
+        multiplyService.MultiBuyGoodsByTx();
+    }
+
+
 }
